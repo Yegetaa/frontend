@@ -1,11 +1,14 @@
+import { Link } from "react-router-dom";
 
 
 function MovieItem({movie}) {
     // so we don't have to do movies.title or movies.alt in the div
-    const {title, poster} = movie;
+    const {title, poster, _id} = movie;
     return(
         <div>
+          <Link to={`/movies/${_id}`}>
             <h3>{title}</h3>
+          </Link>
             {poster ? (
         <img src={poster} alt={title} />
       ) : (

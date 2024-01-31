@@ -1,7 +1,14 @@
 import { useEffect, useState } from "react";
+import { Routes, Route} from "react-router-dom"
+
 import MoviesList from "./components/MoviesList"
+//import MovieItem from "./components/MovieItem";
+
+import MainPage from "./pages/MainPage";
+import NavBar from "./pages/NavBar";
 
 import './App.css';
+import MovieDetails from "./components/MovieDetails";
 // useEffect
 //takes two parameters: a callback function and an array of dependencies 
 //if only with a callback function, then this will be run at every re-render
@@ -29,7 +36,13 @@ const [movies, setMovies] = useState([]); //cuz we know we're going to get an ar
   return (
     <div className="App">
      <h1>Movies Full Stack App</h1>
-     <MoviesList movies={movies}></MoviesList>
+     <NavBar> </NavBar>
+     <Routes>
+        <Route path="/movies" element= { <MoviesList movies={movies}/> }/>
+        <Route path="/" element = {<MainPage/>} />
+        <Route path="/movies/:id" element = { <MovieDetails/> } />
+     </Routes>
+
     </div>
   );
 }
