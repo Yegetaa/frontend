@@ -10,7 +10,7 @@ function MovieDetails() {
     // func to fetch a movie by the id
     const fetchData = async () => {
         try {
-            const res = await fetch(`http://localhost:4000/api/movies/${params.id}`);
+            const res = await fetch(`https://movies-fullstack-backend-f8tv.onrender.com/api/movies/${params.id}`);
             const data = await res.json();
             console.log(data);
             setMovie(data);
